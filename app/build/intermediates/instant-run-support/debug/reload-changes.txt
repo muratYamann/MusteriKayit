@@ -1,0 +1,2 @@
+CHANGED,/Users/murat/Desktop/MusteriKayit/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/android/tools/fd/runtime/AppPatchesLoaderImpl.class
+CHANGED,/Users/murat/Desktop/MusteriKayit/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/example/emrah/musterikayit/DBHelper$override.class

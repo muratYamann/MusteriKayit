@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/Users/murat/Desktop/MusteriKayit/app/build/intermediates/res/merged/debug/menu/main.xml",
+        "source": "/Users/murat/Desktop/MusteriKayit/app/src/main/res/menu/main.xml"
+    },
+    {
+        "merged": "/Users/murat/Desktop/MusteriKayit/app/build/intermediates/res/merged/debug/menu/menu_main.xml",
+        "source": "/Users/murat/Desktop/MusteriKayit/app/src/main/res/menu/menu_main.xml"
+    },
+    {
+        "merged": "/Users/murat/Desktop/MusteriKayit/app/build/intermediates/res/merged/debug/menu/display_contact.xml",
+        "source": "/Users/murat/Desktop/MusteriKayit/app/src/main/res/menu/display_contact.xml"
+    }
+]

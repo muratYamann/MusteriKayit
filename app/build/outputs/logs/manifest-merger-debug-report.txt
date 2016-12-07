@@ -1,0 +1,93 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:2:1-30:12
+	package
+		ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:3:5-45
+		INJECTED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.CALL_PHONE
+ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:5:5-69
+	android:name
+		ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:5:22-66
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:6:5-97
+	android:name
+		ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:6:22-78
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:7:5-96
+	android:name
+		ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:7:22-77
+application
+ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:10:5-28:19
+MERGED from [com.android.support:appcompat-v7:24.1.1] /Users/murat/Desktop/MusteriKayit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.1.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:24.1.1] /Users/murat/Desktop/MusteriKayit/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.1.1/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:24.1.1] /Users/murat/Desktop/MusteriKayit/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.1.1/AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-v4:24.1.1] /Users/murat/Desktop/MusteriKayit/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:24.1.1] /Users/murat/Desktop/MusteriKayit/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-vector-drawable:24.1.1] /Users/murat/Desktop/MusteriKayit/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.1.1/AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-v4:24.1.1] /Users/murat/Desktop/MusteriKayit/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/AndroidManifest.xml:25:5-20
+	android:label
+		ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:13:9-41
+	android:allowBackup
+		ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:11:9-35
+	android:icon
+		ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:12:9-43
+	android:theme
+		ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:14:9-40
+activity#com.example.emrah.musterikayit.MainActivity
+ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:15:9-23:20
+	android:label
+		ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:17:13-45
+	android:name
+		ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:16:13-41
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:18:13-22:29
+action#android.intent.action.MAIN
+ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:19:17-69
+	android:name
+		ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:19:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:21:17-77
+	android:name
+		ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:21:27-74
+activity#com.example.emrah.musterikayit.UpdateClass
+ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:24:9-58
+	android:name
+		ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:24:19-46
+activity#com.example.emrah.musterikayit.MusteriDetail
+ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:25:9-60
+	android:name
+		ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:25:19-48
+activity#com.example.emrah.musterikayit.DisplayContact
+ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:26:9-52
+	android:name
+		ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:26:19-49
+activity#com.example.emrah.musterikayit.Tablo
+ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:27:9-52
+	android:name
+		ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:27:19-40
+uses-sdk
+INJECTED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:appcompat-v7:24.1.1] /Users/murat/Desktop/MusteriKayit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.1.1/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:24.1.1] /Users/murat/Desktop/MusteriKayit/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:24.1.1] /Users/murat/Desktop/MusteriKayit/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.1.1/AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:support-v4:24.1.1] /Users/murat/Desktop/MusteriKayit/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:24.1.1] /Users/murat/Desktop/MusteriKayit/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-vector-drawable:24.1.1] /Users/murat/Desktop/MusteriKayit/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.1.1/AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:support-v4:24.1.1] /Users/murat/Desktop/MusteriKayit/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/AndroidManifest.xml:21:5-23:54
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:24.1.1] /Users/murat/Desktop/MusteriKayit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.1.1/AndroidManifest.xml:23:9-75
+	android:targetSdkVersion
+		INJECTED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml

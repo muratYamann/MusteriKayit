@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="armeabi-v7a,armeabi"
+    api-level="23"
+    density="xhdpi"
+    format="7"
+    timestamp="7422096833333"
+    token="1541673460193999133" >
+
+    <task
+        name="javac"
+        duration="0" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="0" />
+    <task
+        name="verifier"
+        duration="0" />
+
+    <artifact
+        location="/Users/murat/Desktop/MusteriKayit/app/build/intermediates/res/resources-debug.ap_"
+        type="RESOURCES" />
+
+    <build timestamp="7141341980616" >
+        <artifact
+            location="/Users/murat/Desktop/MusteriKayit/app/build/outputs/apk/app-debug.apk"
+            type="MAIN" />
+    </build>
+    <build timestamp="7422096833333" >
+        <artifact
+            location="/Users/murat/Desktop/MusteriKayit/app/build/intermediates/res/resources-debug.ap_"
+            type="RESOURCES" />
+    </build>
+
+</instant-run>
