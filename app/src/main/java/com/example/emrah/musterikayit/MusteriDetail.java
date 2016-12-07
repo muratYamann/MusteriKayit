@@ -57,7 +57,7 @@ public class MusteriDetail extends Activity {
         final String hesapp = rs.getString(rs.getColumnIndex(DBHelper.CONTACTS_COLUMN_CITY));
         String tc = rs.getString(rs.getColumnIndex(DBHelper.CONTACTS_COLUMN_ID));
         String mail = rs.getString(rs.getColumnIndex(DBHelper.CONTACTS_COLUMN_EMAIL));
-        String date = rs.getString(rs.getColumnIndex(DBHelper.CONTACTS_COLUM_DATE));
+       // String date = rs.getString(rs.getColumnIndex(DBHelper.CONTACTS_COLUM_DATE));
 
 
         if (!rs.isClosed()) {

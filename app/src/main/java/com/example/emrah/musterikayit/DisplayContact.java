@@ -66,7 +66,7 @@ btnSave.setOnClickListener(new View.OnClickListener() {
 
                 String id= tc.getText().toString();
 
-                if(mydb.insertContact(id,name.getText().toString(), phone.getText().toString(), email.getText().toString(), tc.getText().toString(), hesap.getText().toString(),odemeYaptigiTarih)){
+                if(mydb.insertContact(id,name.getText().toString(), phone.getText().toString(), email.getText().toString(), tc.getText().toString(), hesap.getText().toString())){
                     Toast.makeText(getApplicationContext(), "Kaydedildi", Toast.LENGTH_SHORT).show();
                     Log.d(TAG, "onClick: id:"+id);
                     Log.d(TAG, "onClick: name:"+name.getText());
@@ -87,7 +87,7 @@ btnSave.setOnClickListener(new View.OnClickListener() {
             else{
 
                 if(mydb.updateContact(id_To_Update,name.getText().toString(), phone.getText().toString(), email.getText().toString(),
-                        tc.getText().toString(), hesap.getText().toString(),odemeYaptigiTarih))
+                        tc.getText().toString(), hesap.getText().toString()))
                 {
 
                     Toast.makeText(getApplicationContext(), "Güncellendi", Toast.LENGTH_SHORT).show();
@@ -124,7 +124,7 @@ btnSave.setOnClickListener(new View.OnClickListener() {
             email.setEnabled(true);
             email.setFocusableInTouchMode(true);
             email.setClickable(true);
-
+            
             tc.setEnabled(true);
             tc.setFocusableInTouchMode(true);
             tc.setClickable(true);

@@ -23,7 +23,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String CONTACTS_COLUMN_STREET = "tc";
     public static final String CONTACTS_COLUMN_CITY = "hesap";
     public static final String CONTACTS_COLUMN_PHONE = "phone";
-    public static final String CONTACTS_COLUM_DATE ="date";
+  //  public static final String CONTACTS_COLUM_DATE ="date";
     private HashMap hp;
 
     public DBHelper(Context context)
@@ -36,7 +36,7 @@ public class DBHelper extends SQLiteOpenHelper {
         // TODO Auto-generated method stub
         db.execSQL(
                 "create table contacts " +
-                        "(id text primary key, name text,phone text,email text, tc text,hesap text ,date text)"
+                        "(id text primary key, name text,phone text,email text, tc text,hesap text )"
         );
     }
 
@@ -47,7 +47,7 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertContact  (String id,String name, String phone, String email, String tc,String hesap,String date)
+    public boolean insertContact  (String id,String name, String phone, String email, String tc,String hesap)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -58,7 +58,7 @@ public class DBHelper extends SQLiteOpenHelper {
         Log.d(TAG, "onClick: email:"+email);
         Log.d(TAG, "onClick: tc:"+tc);
         Log.d(TAG, "onClick: hesap:"+hesap);
-        Log.d(TAG, "onClick: tarih:"+date);
+       // Log.d(TAG, "onClick: tarih:"+date);
 
         contentValues.put("id",id);
         contentValues.put("name", name);
@@ -66,7 +66,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put("email", email);
         contentValues.put("tc", tc);
         contentValues.put("hesap", hesap);
-        contentValues.put("date",date);
+    //    contentValues.put("date",date);
         db.insert("contacts", null, contentValues);
         return true;
     }
@@ -83,7 +83,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return numRows;
     }
 
-    public boolean updateContact (Integer id, String name, String phone, String email, String tc,String hesap,String date)
+    public boolean updateContact (Integer id, String name, String phone, String email, String tc,String hesap)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues;
@@ -94,7 +94,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put("email", email);
         contentValues.put("tc", tc);
         contentValues.put("hesap", hesap);
-        contentValues.put("date",date);
+       // contentValues.put("date",date);
         db.update("contacts", contentValues, "id = ? ", new String[] { Integer.toString(id) } );
         return true;
     }
@@ -144,7 +144,7 @@ public class DBHelper extends SQLiteOpenHelper {
         res.moveToFirst();
 
         while(res.isAfterLast() == false){
-            array_list.add(res.getString(res.getColumnIndex(CONTACTS_COLUM_DATE)));
+            //  array_list.add(res.getString(res.getColumnIndex(CONTACTS_COLUM_DATE)));
             res.moveToNext();
         }
         return array_list;
