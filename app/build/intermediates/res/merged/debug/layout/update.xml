@@ -16,6 +16,7 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
             android:gravity="center"
+            android:textStyle="bold"
             android:text="Toplam ödenecek Tutar :  "
              />
 
@@ -43,8 +44,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:gravity="center"
+            android:textStyle="bold"
             android:textColor="@android:color/black"
-            android:text="Yapılan Ödeme:"
+            android:text="Yapılan Ödeme Miktarı :"
             android:id="@+id/tvYeniHesap" />
 
         <EditText

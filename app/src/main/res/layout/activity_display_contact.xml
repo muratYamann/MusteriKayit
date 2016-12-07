@@ -25,8 +25,8 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <TextView
 
+                <TextView
                     android:id="@+id/tvAdi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:hint="(05452284808)"
+                    android:hint="05450000000"
                     android:ems="11"
                     android:maxLength="11"
                     android:inputType="phone|text" />

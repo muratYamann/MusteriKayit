@@ -39,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         getPermissionCallPhone();
-        getPermissionSendSms();
+        getPermissionWriteExtermal();
+        getPermissionRead();
 
         try {
 
@@ -117,14 +118,27 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void getPermissionSendSms() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS)
+    public void getPermissionWriteExtermal() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
 
             if (shouldShowRequestPermissionRationale(
-                    Manifest.permission.SEND_SMS)) {
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
             }
-            requestPermissions(new String[]{Manifest.permission.SEND_SMS},
+            requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    PERMISSIONS_REQUEST_CODE);
+        }
+    }
+
+
+    public void getPermissionRead() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            if (shouldShowRequestPermissionRationale(
+                    Manifest.permission.READ_EXTERNAL_STORAGE)) {
+            }
+            requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                     PERMISSIONS_REQUEST_CODE);
         }
     }

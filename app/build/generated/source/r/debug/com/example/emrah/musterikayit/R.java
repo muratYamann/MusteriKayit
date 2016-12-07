@@ -1776,7 +1776,8 @@ containing a value of this type.
         public static final int abc_textfield_search_material=0x7f02004b;
         public static final int list_color_selector=0x7f02004c;
         public static final int list_item_text_selector=0x7f02004d;
-        public static final int notification_template_icon_bg=0x7f02004e;
+        public static final int notebook=0x7f02004e;
+        public static final int notification_template_icon_bg=0x7f02004f;
     }
     public static final class id {
         public static final int Delete_Contact=0x7f0b0000;

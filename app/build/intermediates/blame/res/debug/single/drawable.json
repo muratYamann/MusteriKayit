@@ -20,12 +20,12 @@
         "source": "/Users/murat/Desktop/MusteriKayit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.1.1/res/drawable/abc_item_background_holo_dark.xml"
     },
     {
-        "merged": "/Users/murat/Desktop/MusteriKayit/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_thumb_material.xml",
-        "source": "/Users/murat/Desktop/MusteriKayit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.1.1/res/drawable/abc_seekbar_thumb_material.xml"
-    },
-    {
         "merged": "/Users/murat/Desktop/MusteriKayit/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_track_material.xml",
         "source": "/Users/murat/Desktop/MusteriKayit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.1.1/res/drawable/abc_seekbar_track_material.xml"
+    },
+    {
+        "merged": "/Users/murat/Desktop/MusteriKayit/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_thumb_material.xml",
+        "source": "/Users/murat/Desktop/MusteriKayit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.1.1/res/drawable/abc_seekbar_thumb_material.xml"
     },
     {
         "merged": "/Users/murat/Desktop/MusteriKayit/app/build/intermediates/res/merged/debug/drawable/abc_ic_go_search_api_material.xml",
@@ -106,6 +106,10 @@
     {
         "merged": "/Users/murat/Desktop/MusteriKayit/app/build/intermediates/res/merged/debug/drawable/abc_btn_check_material.xml",
         "source": "/Users/murat/Desktop/MusteriKayit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.1.1/res/drawable/abc_btn_check_material.xml"
+    },
+    {
+        "merged": "/Users/murat/Desktop/MusteriKayit/app/build/intermediates/res/merged/debug/drawable/notebook.png",
+        "source": "/Users/murat/Desktop/MusteriKayit/app/src/main/res/drawable/notebook.png"
     },
     {
         "merged": "/Users/murat/Desktop/MusteriKayit/app/build/intermediates/res/merged/debug/drawable/abc_ic_clear_material.xml",

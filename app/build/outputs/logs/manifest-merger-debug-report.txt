@@ -39,7 +39,7 @@ MERGED from [com.android.support:support-v4:24.1.1] /Users/murat/Desktop/Musteri
 	android:allowBackup
 		ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:11:9-35
 	android:icon
-		ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:12:9-43
+		ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:12:9-42
 	android:theme
 		ADDED from /Users/murat/Desktop/MusteriKayit/app/src/main/AndroidManifest.xml:14:9-40
 activity#com.example.emrah.musterikayit.MainActivity

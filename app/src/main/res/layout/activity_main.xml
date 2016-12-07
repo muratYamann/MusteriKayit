@@ -30,7 +30,7 @@
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
         android:textSize="28dp"
-        android:textColor="#ff16ff01" />
+        android:textColor="@color/green" />
 
 
 
