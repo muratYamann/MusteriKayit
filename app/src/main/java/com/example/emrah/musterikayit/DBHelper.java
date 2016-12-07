@@ -115,9 +115,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public Integer deleteContact (Integer id)
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete("kasa",
-                "id = ? ",
-                new String[] { Integer.toString(id) });
+        Log.d(TAG, "deleteContact: "+id );
+        return db.delete("kasa", "id = ? ", new String[] { Integer.toString(id) });
     }
 
     public ArrayList<String> getAllCotacts()
@@ -135,6 +134,7 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         return array_list;
     }
+
 
     public ArrayList<String> getALLDate()
     {

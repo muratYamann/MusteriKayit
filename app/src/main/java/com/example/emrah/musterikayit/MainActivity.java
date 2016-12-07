@@ -1,6 +1,7 @@
 package com.example.emrah.musterikayit;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -48,20 +49,19 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "db_person: "+array_list);
 
         ListView listemiz=(ListView) findViewById(R.id.lvMusteriListesi);
+        listemiz.setLongClickable(true);
         ArrayAdapter<String> veriAdaptoru=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, array_list);
-
         listemiz.setAdapter(veriAdaptoru);
 
 
-        listemiz.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
+        listemiz.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 String gelenId =String.valueOf(array_id.get(position));
                 String name = String.valueOf(array_list.get(position));
-
                 Intent i =new Intent(getApplicationContext(),MusteriDetail.class);
-
                 dataBundle =new Bundle();
                 dataBundle.putString("kulID",gelenId);
                 dataBundle.putString("name",name);
@@ -70,6 +70,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+
+
+
     }
 
 
@@ -93,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtras(dataBundle);
                 startActivity(intent);
                 break;
-
             default:
                 return super.onOptionsItemSelected(item);
         }

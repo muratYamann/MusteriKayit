@@ -11,7 +11,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -25,7 +28,7 @@ import java.util.ArrayList;
 /**
  * Created by murat on 5.10.2016.
  */
-public class MusteriDetail extends Activity {
+public class MusteriDetail extends AppCompatActivity {
     public static String TAG = "_Main";
 
     Bundle dataBundle;
@@ -35,6 +38,8 @@ public class MusteriDetail extends Activity {
     Button btnGuncelle;
     ListView lstMusteriDate;
     ArrayList<String> arrayList;
+
+    String tc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +51,6 @@ public class MusteriDetail extends Activity {
         Bundle extras = getIntent().getExtras();
         String isim = extras.getString("name");
         final String gelenId = extras.getString("kulID");
-
         Log.d(TAG, "extra" + isim + gelenId);
 
         Cursor rs = dbHelp.getData(Integer.valueOf(gelenId));
@@ -55,14 +59,11 @@ public class MusteriDetail extends Activity {
         String nam = rs.getString(rs.getColumnIndex(DBHelper.CONTACTS_COLUMN_NAME));
         final String phon = rs.getString(rs.getColumnIndex(DBHelper.CONTACTS_COLUMN_PHONE));
         final String hesapp = rs.getString(rs.getColumnIndex(DBHelper.CONTACTS_COLUMN_CITY));
-        String tc = rs.getString(rs.getColumnIndex(DBHelper.CONTACTS_COLUMN_ID));
+         tc = rs.getString(rs.getColumnIndex(DBHelper.CONTACTS_COLUMN_ID));
         String mail = rs.getString(rs.getColumnIndex(DBHelper.CONTACTS_COLUMN_EMAIL));
-       // String date = rs.getString(rs.getColumnIndex(DBHelper.CONTACTS_COLUM_DATE));
+        String date = rs.getString(rs.getColumnIndex(DBHelper.CONTACTS_COLUM_DATE));
 
-
-        if (!rs.isClosed()) {
-            rs.close();
-        }
+        if (!rs.isClosed()) { rs.close();}
 
         arrayList = new ArrayList<>();
         arrayList= dbHelp.getALLDate();
@@ -77,14 +78,13 @@ public class MusteriDetail extends Activity {
         tvMusteriPhone = (TextView) findViewById(R.id.tvMusteriTel);
         tvMusMail = (TextView) findViewById(R.id.tvMusteriMail);
         tvMusTC = (TextView) findViewById(R.id.tvMusteriTC);
-
         btnGuncelle = (Button) findViewById(R.id.btnGuncelle);
 
-        tvMusteriadi.setText("Adı:" + nam);
+        tvMusteriadi.setText( nam);
         tvMusteriPhone.setText(phon);
-        tvMusteriHesap.setText("Hesap :" + hesapp.toString());
-        tvMusTC.setText("TC Kimlik No:" + tc);
-        tvMusMail.setText("Mail : " + mail);
+        tvMusteriHesap.setText( hesapp.toString());
+        tvMusTC.setText( tc);
+        tvMusMail.setText(mail);
 
 
         tvMusteriPhone.setOnClickListener(new View.OnClickListener() {
@@ -103,7 +103,6 @@ public class MusteriDetail extends Activity {
         btnGuncelle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 dataBundle =new Bundle();
                 Intent intent = new Intent(getApplicationContext(),UpdateClass.class);
 
@@ -111,11 +110,46 @@ public class MusteriDetail extends Activity {
                 dataBundle.putString("hesap",hesapp);
                 intent.putExtras(dataBundle);
                 startActivity(intent);
-
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.musteri_detail_delete, menu);
+        return true;
+    }
 
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        super.onOptionsItemSelected(item);
+
+        switch(item.getItemId())
+        {
+            case R.id.Delete_Contact:
+                Delete();
+                 break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return true;
+    }
+
+
+
+    public void Delete(){
+
+        dbHelp.deleteContact(Integer.valueOf(tc));
+        Toast.makeText(getApplicationContext(), "silme işlemi başarılı", Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(i);
 
     }
+
+
+
+
+
+
 }

@@ -10,5 +10,9 @@
     {
         "merged": "/Users/murat/Desktop/MusteriKayit/app/build/intermediates/res/merged/debug/menu/display_contact.xml",
         "source": "/Users/murat/Desktop/MusteriKayit/app/src/main/res/menu/display_contact.xml"
+    },
+    {
+        "merged": "/Users/murat/Desktop/MusteriKayit/app/build/intermediates/res/merged/debug/menu/musteri_detail_delete.xml",
+        "source": "/Users/murat/Desktop/MusteriKayit/app/src/main/res/menu/musteri_detail_delete.xml"
     }
 ]

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_margin="15dp"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="20dp">
 
@@ -9,6 +12,17 @@
         android:layout_margin="10dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adı:"
+            android:textSize="16dp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:id="@+id/tvMuterad" />
 
         <TextView
             android:layout_width="match_parent"
@@ -28,6 +42,18 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tel:"
+            android:textColor="@android:color/black"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:id="@+id/tvMusteritelefon" />
 
         <TextView
             android:layout_width="match_parent"
@@ -51,6 +77,17 @@
         android:orientation="horizontal">
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="16dp"
+            android:textColor="@android:color/black"
+            android:text="e-Mail:"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:id="@+id/MusteriMail"/>
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -62,11 +99,24 @@
 
     </LinearLayout>
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:orientation="horizontal">
+
+        <TextView
+            android:textColor="@android:color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Tc:"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:id="@+id/tvMusteritc"
+            />
 
         <TextView
             android:layout_width="match_parent"
@@ -87,10 +137,23 @@
         android:orientation="horizontal">
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:layout_gravity="center"
+            android:textSize="16dp"
+            android:text="Bakiye :"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:id="@+id/tvMusteriHsp"
+            />
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textSize="16dp"
+            android:textSize="25dp"
+            android:textColor="@android:color/holo_red_dark"
             android:textStyle="bold"
             android:gravity="center"
             android:id="@+id/tvMusteriHesap"
@@ -99,9 +162,14 @@
     </LinearLayout>
 
     <Button
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Guncelle"
+        android:text="yeni ödeme yap"
+        android:theme="@style/MyButton"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:background="@android:color/holo_green_light"
         android:id="@+id/btnGuncelle"
         android:layout_gravity="center_horizontal" />
 
@@ -118,18 +186,6 @@
         />
 
 
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/scrollView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true">
-
-
         <ListView
             android:id="@+id/lvMusteriDetailDate"
             android:layout_width="match_parent"
@@ -139,8 +195,6 @@
             android:layout_marginTop="71dp">
         </ListView>
 
-
-    </ScrollView>
 
 
 </LinearLayout>
