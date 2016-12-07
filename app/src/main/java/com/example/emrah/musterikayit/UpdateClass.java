@@ -25,64 +25,90 @@ public class UpdateClass extends Activity {
     Button btnYeniHesapGuncelle;
     DBHelper dbGuncelle;
 
+    WriteInternalAppend_date wr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.update);
 
+
+        wr = new WriteInternalAppend_date();
+
         etYeniBakiye =(EditText)findViewById(R.id.etYeniHesap);
         btnYeniHesapGuncelle =(Button)findViewById(R.id.btnYeniBakiyeGuncelle);
+        tvEskiBakiye =(TextView)findViewById(R.id.tvEskiHesap) ;
+
 
         Calendar c = Calendar.getInstance();
 
         final String odemeYaptigiTarih = c.get(Calendar.YEAR)+"-"+(c.get(Calendar.MONTH)+1)+"-"+c.get(Calendar.DATE)+" "+c.get((Calendar.HOUR_OF_DAY))+":"+c.get(Calendar.MINUTE);
 
+        final String trh[] =new String[1];
+        trh[0]=odemeYaptigiTarih;
 
 
         dbGuncelle =new DBHelper(this);
 
-        Bundle extras = getIntent().getExtras();
-        String hesap = extras.getString("hesap");
-        final String gelenId = extras.getString("kulID");
-        Log.d(TAG, "onCreate: "+hesap);
+        try {
+
+            Bundle extras = getIntent().getExtras();
+            String hesap = extras.getString("hesapp");
+            final String gelenId = extras.getString("kulID");
+
+            tvEskiBakiye.setText(hesap);
+
+            Cursor rs = dbGuncelle.getData(gelenId);
+            rs.moveToFirst();
+            final String hesapp = rs.getString(rs.getColumnIndex(DBHelper.CONTACTS_COLUMN_CITY));
 
 
-        Cursor rs = dbGuncelle.getData(Integer.valueOf(gelenId));
-        rs.moveToFirst();
-       final String hesapp = rs.getString(rs.getColumnIndex(DBHelper.CONTACTS_COLUMN_CITY));
+            if (!rs.isClosed())
+            {
+                rs.close();
+            }
 
 
-        if (!rs.isClosed())
-        {
-            rs.close();
+            btnYeniHesapGuncelle.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    try {
+
+                        if (etYeniBakiye.getText().toString().trim() != null){
+
+                            String yeniBakiye = etYeniBakiye.getText().toString().trim();
+                            int eskiHesap = Integer.valueOf(hesapp);
+                            int odenen = Integer.valueOf(yeniBakiye);
+                            int kalan = eskiHesap - odenen;
+
+                            dbGuncelle.updateContact(gelenId,String.valueOf(kalan),odemeYaptigiTarih);
+                            Toast.makeText(UpdateClass.this, "Guncelleme Gerçeklestirildi", Toast.LENGTH_SHORT).show();
+
+                            wr.WriteFile(gelenId.toString().trim()+".csv",trh,UpdateClass.this);
+
+
+                            Intent i = new Intent(getApplicationContext(),MainActivity.class);
+                            startActivity(i);
+                        }
+                        else {
+
+                            Toast.makeText(UpdateClass.this, "Ödeme miktarı giriniz ...", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }catch (Exception e){
+                        Toast.makeText(UpdateClass.this,"Ödeme miktarı giriniz...", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            });
+
+
+        }catch (Exception e){
+
         }
 
 
-        btnYeniHesapGuncelle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                try {
-
-                    String yeniBakiye = etYeniBakiye.getText().toString().trim();
-                    int eskiHesap = Integer.valueOf(hesapp);
-                    int odenen = Integer.valueOf(yeniBakiye);
-                    int kalan = eskiHesap - odenen;
-
-
-                    dbGuncelle.updateContact(Integer.valueOf(gelenId),String.valueOf(kalan),odemeYaptigiTarih);
-                    Toast.makeText(UpdateClass.this, "Guncelleme Gerçeklestirildi", Toast.LENGTH_SHORT).show();
-
-                    Intent i = new Intent(getApplicationContext(),MainActivity.class);
-                    startActivity(i);
-
-                }catch (Exception e){
-                    Toast.makeText(UpdateClass.this, e.toString(), Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
 
 
     }

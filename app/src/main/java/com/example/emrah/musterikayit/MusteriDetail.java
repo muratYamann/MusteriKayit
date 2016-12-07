@@ -38,6 +38,9 @@ public class MusteriDetail extends AppCompatActivity {
     Button btnGuncelle;
     ListView lstMusteriDate;
     ArrayList<String> arrayList;
+    ArrayList<String>arrayListDate;
+
+    ResultReadToFileInternal readToFileInternal;
 
     String tc;
 
@@ -48,70 +51,87 @@ public class MusteriDetail extends AppCompatActivity {
 
         dbHelp = new DBHelper(this);
 
-        Bundle extras = getIntent().getExtras();
-        String isim = extras.getString("name");
-        final String gelenId = extras.getString("kulID");
-        Log.d(TAG, "extra" + isim + gelenId);
+        arrayListDate = new ArrayList();
 
-        Cursor rs = dbHelp.getData(Integer.valueOf(gelenId));
-        rs.moveToFirst();
-
-        String nam = rs.getString(rs.getColumnIndex(DBHelper.CONTACTS_COLUMN_NAME));
-        final String phon = rs.getString(rs.getColumnIndex(DBHelper.CONTACTS_COLUMN_PHONE));
-        final String hesapp = rs.getString(rs.getColumnIndex(DBHelper.CONTACTS_COLUMN_CITY));
-         tc = rs.getString(rs.getColumnIndex(DBHelper.CONTACTS_COLUMN_ID));
-        String mail = rs.getString(rs.getColumnIndex(DBHelper.CONTACTS_COLUMN_EMAIL));
-        String date = rs.getString(rs.getColumnIndex(DBHelper.CONTACTS_COLUM_DATE));
-
-        if (!rs.isClosed()) { rs.close();}
-
-        arrayList = new ArrayList<>();
-        arrayList= dbHelp.getALLDate();
-
-        lstMusteriDate = (ListView)findViewById(R.id.lvMusteriDetailDate);
-        ArrayAdapter<String> veriAdaptoru=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, arrayList);
-        lstMusteriDate.setAdapter(veriAdaptoru);
+        readToFileInternal = new ResultReadToFileInternal();
 
 
-        tvMusteriHesap = (TextView) findViewById(R.id.tvMusteriHesap);
-        tvMusteriadi = (TextView) findViewById(R.id.tvMuteriAdi);
-        tvMusteriPhone = (TextView) findViewById(R.id.tvMusteriTel);
-        tvMusMail = (TextView) findViewById(R.id.tvMusteriMail);
-        tvMusTC = (TextView) findViewById(R.id.tvMusteriTC);
-        btnGuncelle = (Button) findViewById(R.id.btnGuncelle);
+        try {
 
-        tvMusteriadi.setText( nam);
-        tvMusteriPhone.setText(phon);
-        tvMusteriHesap.setText( hesapp.toString());
-        tvMusTC.setText( tc);
-        tvMusMail.setText(mail);
+            Bundle extras = getIntent().getExtras();
+            String isim = extras.getString("name");
+            final String gelenId = extras.getString("kulID");
+            Log.d(TAG, "extra" + isim + gelenId);
+
+            Cursor rs = dbHelp.getData(gelenId);
+            rs.moveToFirst();
+
+            String nam = rs.getString(rs.getColumnIndex(DBHelper.CONTACTS_COLUMN_NAME));
+            final String phon = rs.getString(rs.getColumnIndex(DBHelper.CONTACTS_COLUMN_PHONE));
+            final String hesapp = rs.getString(rs.getColumnIndex(DBHelper.CONTACTS_COLUMN_CITY));
+            tc = rs.getString(rs.getColumnIndex(DBHelper.CONTACTS_COLUMN_ID));
+            String mail = rs.getString(rs.getColumnIndex(DBHelper.CONTACTS_COLUMN_EMAIL));
+            String date = rs.getString(rs.getColumnIndex(DBHelper.CONTACTS_COLUM_DATE));
+
+            if (!rs.isClosed()) { rs.close();}
+
+            arrayList = new ArrayList<>();
 
 
-        tvMusteriPhone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intentCall = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phon));
-                if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                    return;
+
+            tvMusteriHesap = (TextView) findViewById(R.id.tvMusteriHesap);
+            tvMusteriadi = (TextView) findViewById(R.id.tvMuteriAdi);
+            tvMusteriPhone = (TextView) findViewById(R.id.tvMusteriTel);
+            tvMusMail = (TextView) findViewById(R.id.tvMusteriMail);
+            tvMusTC = (TextView) findViewById(R.id.tvMusteriTC);
+            btnGuncelle = (Button) findViewById(R.id.btnGuncelle);
+
+            tvMusteriadi.setText( nam);
+            tvMusteriPhone.setText(phon);
+            tvMusteriHesap.setText( hesapp.toString());
+            tvMusTC.setText( tc);
+            tvMusMail.setText(mail);
+
+
+            readToFileInternal.ReadToFile(tc+".csv",MusteriDetail.this);
+            arrayListDate =readToFileInternal.liste;
+
+
+            lstMusteriDate = (ListView)findViewById(R.id.lvMusteriDetailDate);
+            ArrayAdapter<String> veriAdaptoru=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, arrayListDate);
+            lstMusteriDate.setAdapter(veriAdaptoru);
+
+
+
+            tvMusteriPhone.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intentCall = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phon));
+                    if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                        return;
+                    }
+                    startActivity(intentCall);
                 }
-                startActivity(intentCall);
-            }
-        });
+            });
 
 
 
-        btnGuncelle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dataBundle =new Bundle();
-                Intent intent = new Intent(getApplicationContext(),UpdateClass.class);
+            btnGuncelle.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dataBundle =new Bundle();
+                    Intent intent = new Intent(getApplicationContext(),UpdateClass.class);
 
-                dataBundle.putString("kulID",gelenId);
-                dataBundle.putString("hesap",hesapp);
-                intent.putExtras(dataBundle);
-                startActivity(intent);
-            }
-        });
+                    dataBundle.putString("kulID",gelenId);
+                    dataBundle.putString("hesapp",hesapp.toString());
+                    intent.putExtras(dataBundle);
+                    startActivity(intent);
+                }
+            });
+
+        }catch (Exception e){}
+
+
     }
 
     @Override
@@ -137,19 +157,13 @@ public class MusteriDetail extends AppCompatActivity {
     }
 
 
-
     public void Delete(){
 
-        dbHelp.deleteContact(Integer.valueOf(tc));
+        dbHelp.deleteContact(tc);
         Toast.makeText(getApplicationContext(), "silme işlemi başarılı", Toast.LENGTH_SHORT).show();
         Intent i = new Intent(getApplicationContext(),MainActivity.class);
         startActivity(i);
 
     }
-
-
-
-
-
 
 }

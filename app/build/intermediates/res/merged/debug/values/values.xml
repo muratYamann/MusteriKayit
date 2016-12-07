@@ -36,11 +36,11 @@
     <color name="dim_foreground_material_light">#ff323232</color>
     <color name="foreground_material_dark">@android:color/white</color>
     <color name="foreground_material_light">@android:color/black</color>
+    <color name="green">#228B22</color>
     <color name="highlighted_text_material_dark">#6680cbc4</color>
     <color name="highlighted_text_material_light">#66009688</color>
     <color name="hint_foreground_material_dark">@color/bright_foreground_disabled_material_dark</color>
     <color name="hint_foreground_material_light">@color/bright_foreground_disabled_material_light</color>
-    <color name="indigo">#228B22</color>
     <color name="list_row_default_bg">#ffffff</color>
     <color name="list_row_pressed_bg">#ff16ff01</color>
     <color name="list_row_selected_bg">#86d3f6</color>
@@ -239,18 +239,18 @@
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <string name="action_settings">MÜŞTERİ TABLOSU</string>
     <string name="app_name">KASA DEFTERİ</string>
-    <string name="country">Hesap</string>
+    <string name="country">Hesap :</string>
     <string name="delete">Müşteri Sil</string>
     <string name="deleteContact">Bunu silmek istiyor musunuz .</string>
     <string name="edit">Müşteri Güncelle</string>
-    <string name="email">Email</string>
+    <string name="email">Email :</string>
     <string name="hello_world"/>
-    <string name="name">Adı</string>
+    <string name="name">Adı :</string>
     <string name="no">Hayır</string>
-    <string name="phone">Telefon</string>
+    <string name="phone">Telefon:</string>
     <string name="save">KAYDET</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="street">T.C</string>
+    <string name="street">T.C :</string>
     <string name="title_activity_display_contact">DisplayContact</string>
     <string name="yes">Evet</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
@@ -1261,7 +1261,7 @@
         <item name="android:scaleType">center</item>
     </style>
     <style name="MyButton" parent="Theme.AppCompat.Light">
-        <item name="colorControlHighlight">@color/indigo</item>
+        <item name="colorControlHighlight">@color/green</item>
         <item name="colorButtonNormal">@color/list_row_pressed_bg</item>
     </style>
     <style name="Platform.AppCompat" parent="android:Theme">

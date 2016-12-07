@@ -6,11 +6,11 @@
     <string name="edit">Müşteri Güncelle</string>
     <string name="delete">Müşteri Sil</string>
     <string name="title_activity_display_contact">DisplayContact</string>
-    <string name="name">Adı</string>
-    <string name="phone">Telefon</string>
-    <string name="email">Email</string>
-    <string name="street">T.C</string>
-    <string name="country">Hesap</string>
+    <string name="name">Adı :</string>
+    <string name="phone">Telefon:</string>
+    <string name="email">Email :</string>
+    <string name="street">T.C :</string>
+    <string name="country">Hesap :</string>
     <string name="save">KAYDET</string>
     <string name="deleteContact">Bunu silmek istiyor musunuz .</string>
     <string name="yes">Evet</string>

@@ -27,7 +27,7 @@ EditText phone;
 EditText email;
 EditText tc;
 EditText hesap;
-int id_To_Update = 0;
+String id_To_Update = "0";
 
 @Override
 protected void onCreate(Bundle savedInstanceState) {
@@ -61,45 +61,49 @@ btnSave.setOnClickListener(new View.OnClickListener() {
         
         if(extras !=null)
         {
-            int Value = extras.getInt("id");
-            if(Value == 0){
 
-                String id= tc.getText().toString();
+            try {
 
-                if(mydb.insertContact(id,name.getText().toString(), phone.getText().toString(), email.getText().toString(), tc.getText().toString(), hesap.getText().toString(),odemeYaptigiTarih)){
-                    Toast.makeText(getApplicationContext(), "Kaydedildi", Toast.LENGTH_SHORT).show();
-                    Log.d(TAG, "onClick: id:"+id);
-                    Log.d(TAG, "onClick: name:"+name.getText());
-                    Log.d(TAG, "onClick: phone:"+phone.getText());
-                    Log.d(TAG, "onClick: email:"+email.getText());
-                    Log.d(TAG, "onClick: tc:"+tc.getText());
-                    Log.d(TAG, "onClick: hesap:"+hesap.getText());
-                    Log.d(TAG, "onClick: tarih:"+odemeYaptigiTarih);
+                if ( !tc.getText().toString().trim().equals(" ")  ) {
+
+
+                    int Value = extras.getInt("id");
+                    if (Value == 0) {
+
+                        String id = tc.getText().toString();
+
+                        if (mydb.insertContact(id, name.getText().toString(), phone.getText().toString(), email.getText().toString(), tc.getText().toString(), hesap.getText().toString(), odemeYaptigiTarih)) {
+                            Toast.makeText(getApplicationContext(), "Kaydedildi", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Log.d(TAG, "onClick: kayıt Yapılmadi");
+                            Toast.makeText(getApplicationContext(), "Öğe kaydedilmedi", Toast.LENGTH_SHORT).show();
+                        }
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(intent);
+
+                    } else {
+
+                        if (mydb.updateContact(id_To_Update, name.getText().toString(), phone.getText().toString(), email.getText().toString(),
+                                tc.getText().toString(), hesap.getText().toString(), odemeYaptigiTarih)) {
+
+                            Toast.makeText(getApplicationContext(), "Güncellendi", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Güncellenmedi", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                } else {
+                    Toast.makeText(DisplayContact.this, "Boş alanlar var ...", Toast.LENGTH_SHORT).show();
                 }
-
-                else{
-                    Log.d(TAG, "onClick: kayıt Yapılmadi");
-                    Toast.makeText(getApplicationContext(), "Öğe kaydedilmedi", Toast.LENGTH_SHORT).show();
-                }
-                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(intent);
             }
-            else{
-
-                if(mydb.updateContact(id_To_Update,name.getText().toString(), phone.getText().toString(), email.getText().toString(),
-                        tc.getText().toString(), hesap.getText().toString(),odemeYaptigiTarih))
-                {
-
-                    Toast.makeText(getApplicationContext(), "Güncellendi", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                    startActivity(intent);
-                }
-                else{
-                    Toast.makeText(getApplicationContext(), "Güncellenmedi", Toast.LENGTH_SHORT).show();
-                }
-
+            catch (Exception e){
+                Toast.makeText(DisplayContact.this, "Boş Alanları dolgurunuz Lütfen !!!", Toast.LENGTH_SHORT).show();
             }
         }
+
+
     }
 });
 

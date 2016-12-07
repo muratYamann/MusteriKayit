@@ -3,7 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_margin="15dp"
-    android:background="@android:color/darker_gray"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="20dp">
@@ -153,7 +152,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textSize="20dp"
+            android:textSize="25dp"
             android:textColor="@android:color/holo_red_dark"
             android:textStyle="bold"
             android:gravity="center"
@@ -164,13 +163,13 @@
 
     <Button
         style="?android:attr/borderlessButtonStyle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="yeni ödeme yap"
         android:theme="@style/MyButton"
         android:textStyle="bold"
         android:textColor="@color/white"
-        android:background="@android:color/holo_green_light"
+        android:background="@color/green"
         android:id="@+id/btnGuncelle"
         android:layout_gravity="center_horizontal" />
 

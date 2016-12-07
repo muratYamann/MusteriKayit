@@ -53,14 +53,6 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
-        Log.d(TAG, "onClick: id:"+id);
-        Log.d(TAG, "onClick: name:"+name);
-        Log.d(TAG, "onClick: phone:"+phone);
-        Log.d(TAG, "onClick: email:"+email);
-        Log.d(TAG, "onClick: tc:"+tc);
-        Log.d(TAG, "onClick: hesap:"+hesap);
-        Log.d(TAG, "onClick: tarih:"+date);
-
         contentValues.put("id",id);
         contentValues.put("name", name);
         contentValues.put("phone", phone);
@@ -73,19 +65,18 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public Cursor getData(int id){
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res =  db.rawQuery( "select * from kasa where id = "+id+"", null );
-        return res;
+    public boolean insertContactDate  (String date)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put("date",date);
+        db.insert("kasa", null, contentValues);
+        return true;
     }
 
-    public int numberOfRows(){
-        SQLiteDatabase db = this.getReadableDatabase();
-        int numRows = (int) DatabaseUtils.queryNumEntries(db, CONTACTS_TABLE_NAME);
-        return numRows;
-    }
 
-    public boolean updateContact (Integer id, String name, String phone, String email, String tc,String hesap,String date)
+    public boolean updateContact (String id, String name, String phone, String email, String tc,String hesap,String date)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues;
@@ -97,26 +88,27 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put("tc", tc);
         contentValues.put("hesap", hesap);
         contentValues.put("date",date);
-        db.update("kasa", contentValues, "id = ? ", new String[] { Integer.toString(id) } );
+        db.update("kasa", contentValues, "id = ? ", new String[] { (id) } );
         return true;
     }
-    public boolean updateContact (Integer id,String hesap,String date){
+    public boolean updateContact (String id,String hesap,String date){
 
         SQLiteDatabase db =this.getWritableDatabase();
         ContentValues contentValues;
         contentValues =new ContentValues();
         contentValues.put("hesap",hesap);
         contentValues.put("date",date);
-        db.update("kasa",contentValues,"id = ?",new String[]{Integer.toString(id)});
+        db.update("kasa",contentValues,"id = ?",new String[]{(id)});
+
         Log.d(TAG, "updateKasa: "+contentValues.toString());
         return true;
     }
 
-    public Integer deleteContact (Integer id)
+    public Integer deleteContact (String id)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         Log.d(TAG, "deleteContact: "+id );
-        return db.delete("kasa", "id = ? ", new String[] { Integer.toString(id) });
+        return db.delete("kasa", "id = ? ", new String[] { (id) });
     }
 
     public ArrayList<String> getAllCotacts()
@@ -152,6 +144,17 @@ public class DBHelper extends SQLiteOpenHelper {
         return array_list;
     }
 
+    public Cursor getData(String id){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res =  db.rawQuery( "select * from kasa where id = "+id+"", null );
+        return res;
+    }
+
+    public int numberOfRows(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        int numRows = (int) DatabaseUtils.queryNumEntries(db, CONTACTS_TABLE_NAME);
+        return numRows;
+    }
 
     
     public ArrayList<String> getPersonId()

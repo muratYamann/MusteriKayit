@@ -163,13 +163,13 @@
 
     <Button
         style="?android:attr/borderlessButtonStyle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="yeni ödeme yap"
         android:theme="@style/MyButton"
         android:textStyle="bold"
         android:textColor="@color/white"
-        android:background="@android:color/holo_green_light"
+        android:background="@color/green"
         android:id="@+id/btnGuncelle"
         android:layout_gravity="center_horizontal" />
 

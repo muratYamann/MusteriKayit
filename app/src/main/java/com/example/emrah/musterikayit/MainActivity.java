@@ -41,38 +41,39 @@ public class MainActivity extends AppCompatActivity {
         getPermissionCallPhone();
         getPermissionSendSms();
 
-        mydb = new DBHelper(this);
-        array_id =new ArrayList<>();
-        array_list = new ArrayList();
-        array_id =mydb.getPersonId();
-        array_list =mydb.getAllCotacts(); //mydb.getAllCotacts();
-        Log.d(TAG, "db_person: "+array_list);
+        try {
 
-        ListView listemiz=(ListView) findViewById(R.id.lvMusteriListesi);
-        listemiz.setLongClickable(true);
-        ArrayAdapter<String> veriAdaptoru=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, array_list);
-        listemiz.setAdapter(veriAdaptoru);
+            mydb = new DBHelper(this);
+            array_id =new ArrayList<>();
+            array_list = new ArrayList();
+            array_id =mydb.getPersonId();
+            array_list =mydb.getAllCotacts(); //mydb.getAllCotacts();
+            Log.d(TAG, "db_person: "+array_list);
 
-
-
-        listemiz.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                String gelenId =String.valueOf(array_id.get(position));
-                String name = String.valueOf(array_list.get(position));
-                Intent i =new Intent(getApplicationContext(),MusteriDetail.class);
-                dataBundle =new Bundle();
-                dataBundle.putString("kulID",gelenId);
-                dataBundle.putString("name",name);
-                i.putExtras(dataBundle);
-                Toast.makeText(MainActivity.this, name, Toast.LENGTH_SHORT).show();
-                startActivity(i);
-            }
-        });
+            ListView listemiz=(ListView) findViewById(R.id.lvMusteriListesi);
+            listemiz.setLongClickable(true);
+            ArrayAdapter<String> veriAdaptoru=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, array_list);
+            listemiz.setAdapter(veriAdaptoru);
 
 
 
+            listemiz.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    String gelenId =String.valueOf(array_id.get(position));
+                    String name = String.valueOf(array_list.get(position));
+                    Intent i =new Intent(getApplicationContext(),MusteriDetail.class);
+                    dataBundle =new Bundle();
+                    dataBundle.putString("kulID",gelenId);
+                    dataBundle.putString("name",name);
+                    i.putExtras(dataBundle);
+                    Toast.makeText(MainActivity.this, name, Toast.LENGTH_SHORT).show();
+                    startActivity(i);
+                }
+            });
+
+        }catch (Exception e){}
 
     }
 

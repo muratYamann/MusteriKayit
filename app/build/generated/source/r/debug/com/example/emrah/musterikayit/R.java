@@ -1570,11 +1570,11 @@ containing a value of this type.
         public static final int dim_foreground_material_light=0x7f0a0018;
         public static final int foreground_material_dark=0x7f0a0019;
         public static final int foreground_material_light=0x7f0a001a;
-        public static final int highlighted_text_material_dark=0x7f0a001b;
-        public static final int highlighted_text_material_light=0x7f0a001c;
-        public static final int hint_foreground_material_dark=0x7f0a001d;
-        public static final int hint_foreground_material_light=0x7f0a001e;
-        public static final int indigo=0x7f0a001f;
+        public static final int green=0x7f0a001b;
+        public static final int highlighted_text_material_dark=0x7f0a001c;
+        public static final int highlighted_text_material_light=0x7f0a001d;
+        public static final int hint_foreground_material_dark=0x7f0a001e;
+        public static final int hint_foreground_material_light=0x7f0a001f;
         public static final int list_row_default_bg=0x7f0a0020;
         public static final int list_row_pressed_bg=0x7f0a0021;
         public static final int list_row_selected_bg=0x7f0a0022;
@@ -1780,7 +1780,6 @@ containing a value of this type.
     }
     public static final class id {
         public static final int Delete_Contact=0x7f0b0000;
-        public static final int Edit_Contact=0x7f0b0084;
         public static final int MusteriMail=0x7f0b006a;
         public static final int action0=0x7f0b0073;
         public static final int action_bar=0x7f0b0046;
@@ -1799,7 +1798,7 @@ containing a value of this type.
         public static final int action_mode_close_button=0x7f0b0027;
         public static final int activity_chooser_view_content=0x7f0b0028;
         public static final int add=0x7f0b0014;
-        public static final int add_contact=0x7f0b0085;
+        public static final int add_contact=0x7f0b0084;
         public static final int alertTitle=0x7f0b0034;
         public static final int always=0x7f0b001e;
         public static final int beginning=0x7f0b001b;
@@ -1950,21 +1949,20 @@ containing a value of this type.
         public static final int activity_dbhelper=0x7f04001a;
         public static final int activity_display_contact=0x7f04001b;
         public static final int activity_main=0x7f04001c;
-        public static final int activity_tablo=0x7f04001d;
-        public static final int musteri_detail=0x7f04001e;
-        public static final int notification_media_action=0x7f04001f;
-        public static final int notification_media_cancel_action=0x7f040020;
-        public static final int notification_template_big_media=0x7f040021;
-        public static final int notification_template_big_media_narrow=0x7f040022;
-        public static final int notification_template_lines=0x7f040023;
-        public static final int notification_template_media=0x7f040024;
-        public static final int notification_template_part_chronometer=0x7f040025;
-        public static final int notification_template_part_time=0x7f040026;
-        public static final int select_dialog_item_material=0x7f040027;
-        public static final int select_dialog_multichoice_material=0x7f040028;
-        public static final int select_dialog_singlechoice_material=0x7f040029;
-        public static final int support_simple_spinner_dropdown_item=0x7f04002a;
-        public static final int update=0x7f04002b;
+        public static final int musteri_detail=0x7f04001d;
+        public static final int notification_media_action=0x7f04001e;
+        public static final int notification_media_cancel_action=0x7f04001f;
+        public static final int notification_template_big_media=0x7f040020;
+        public static final int notification_template_big_media_narrow=0x7f040021;
+        public static final int notification_template_lines=0x7f040022;
+        public static final int notification_template_media=0x7f040023;
+        public static final int notification_template_part_chronometer=0x7f040024;
+        public static final int notification_template_part_time=0x7f040025;
+        public static final int select_dialog_item_material=0x7f040026;
+        public static final int select_dialog_multichoice_material=0x7f040027;
+        public static final int select_dialog_singlechoice_material=0x7f040028;
+        public static final int support_simple_spinner_dropdown_item=0x7f040029;
+        public static final int update=0x7f04002a;
     }
     public static final class menu {
         public static final int display_contact=0x7f0d0000;
