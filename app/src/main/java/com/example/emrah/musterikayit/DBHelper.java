@@ -15,15 +15,16 @@ import java.util.HashMap;
 
 public class DBHelper extends SQLiteOpenHelper {
     public static String TAG ="db";
-    public static final String DATABASE_NAME = "MyDBName.db";
-    public static final String CONTACTS_TABLE_NAME = "contacts";
+    public static final String DATABASE_NAME = "MyDBNameKasa.db";
+    public static final String CONTACTS_TABLE_NAME = "kasa";
     public static final String CONTACTS_COLUMN_ID = "id";
     public static final String CONTACTS_COLUMN_NAME = "name";
     public static final String CONTACTS_COLUMN_EMAIL = "email";
     public static final String CONTACTS_COLUMN_STREET = "tc";
     public static final String CONTACTS_COLUMN_CITY = "hesap";
     public static final String CONTACTS_COLUMN_PHONE = "phone";
-  //  public static final String CONTACTS_COLUM_DATE ="date";
+    public static final String CONTACTS_COLUM_DATE ="date";
+
     private HashMap hp;
 
     public DBHelper(Context context)
@@ -35,19 +36,19 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         // TODO Auto-generated method stub
         db.execSQL(
-                "create table contacts " +
-                        "(id text primary key, name text,phone text,email text, tc text,hesap text )"
+                "create table kasa " +
+                        "(id text primary key, name text,phone text,email text, tc text,hesap text, date text )"
         );
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // TODO Auto-generated method stub
-        db.execSQL("DROP TABLE IF EXISTS contacts");
+        db.execSQL("DROP TABLE IF EXISTS kasa");
         onCreate(db);
     }
 
-    public boolean insertContact  (String id,String name, String phone, String email, String tc,String hesap)
+    public boolean insertContact  (String id,String name, String phone, String email, String tc,String hesap,String date)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -58,7 +59,7 @@ public class DBHelper extends SQLiteOpenHelper {
         Log.d(TAG, "onClick: email:"+email);
         Log.d(TAG, "onClick: tc:"+tc);
         Log.d(TAG, "onClick: hesap:"+hesap);
-       // Log.d(TAG, "onClick: tarih:"+date);
+        Log.d(TAG, "onClick: tarih:"+date);
 
         contentValues.put("id",id);
         contentValues.put("name", name);
@@ -66,14 +67,15 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put("email", email);
         contentValues.put("tc", tc);
         contentValues.put("hesap", hesap);
-    //    contentValues.put("date",date);
-        db.insert("contacts", null, contentValues);
+        contentValues.put("date",date);
+
+        db.insert("kasa", null, contentValues);
         return true;
     }
 
     public Cursor getData(int id){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res =  db.rawQuery( "select * from contacts where id = "+id+"", null );
+        Cursor res =  db.rawQuery( "select * from kasa where id = "+id+"", null );
         return res;
     }
 
@@ -83,7 +85,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return numRows;
     }
 
-    public boolean updateContact (Integer id, String name, String phone, String email, String tc,String hesap)
+    public boolean updateContact (Integer id, String name, String phone, String email, String tc,String hesap,String date)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues;
@@ -94,26 +96,26 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put("email", email);
         contentValues.put("tc", tc);
         contentValues.put("hesap", hesap);
-       // contentValues.put("date",date);
-        db.update("contacts", contentValues, "id = ? ", new String[] { Integer.toString(id) } );
+        contentValues.put("date",date);
+        db.update("kasa", contentValues, "id = ? ", new String[] { Integer.toString(id) } );
         return true;
     }
-    public boolean updateContact (Integer id,String hesap,String odemeYaptigiTarih){
+    public boolean updateContact (Integer id,String hesap,String date){
 
         SQLiteDatabase db =this.getWritableDatabase();
         ContentValues contentValues;
         contentValues =new ContentValues();
         contentValues.put("hesap",hesap);
-        contentValues.put("date",odemeYaptigiTarih);
-        db.update("contacts",contentValues,"id = ?",new String[]{Integer.toString(id)});
-        Log.d(TAG, "updateContact: "+contentValues.toString());
+        contentValues.put("date",date);
+        db.update("kasa",contentValues,"id = ?",new String[]{Integer.toString(id)});
+        Log.d(TAG, "updateKasa: "+contentValues.toString());
         return true;
     }
 
     public Integer deleteContact (Integer id)
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete("contacts",
+        return db.delete("kasa",
                 "id = ? ",
                 new String[] { Integer.toString(id) });
     }
@@ -124,7 +126,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         //hp = new HashMap();
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res =  db.rawQuery( "select * from contacts", null );
+        Cursor res =  db.rawQuery( "select * from kasa", null );
         res.moveToFirst();
 
         while(res.isAfterLast() == false){
@@ -140,11 +142,11 @@ public class DBHelper extends SQLiteOpenHelper {
 
         //hp = new HashMap();
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res =  db.rawQuery( "select * from contacts", null );
+        Cursor res =  db.rawQuery( "select * from kasa", null );
         res.moveToFirst();
 
         while(res.isAfterLast() == false){
-            //  array_list.add(res.getString(res.getColumnIndex(CONTACTS_COLUM_DATE)));
+              array_list.add(res.getString(res.getColumnIndex(CONTACTS_COLUM_DATE)));
             res.moveToNext();
         }
         return array_list;
@@ -157,7 +159,7 @@ public class DBHelper extends SQLiteOpenHelper {
         ArrayList<String> array_list = new ArrayList<String>();
 
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res =  db.rawQuery( "select * from contacts", null );
+        Cursor res =  db.rawQuery( "select * from kasa", null );
         res.moveToFirst();
 
         while(res.isAfterLast() == false){
